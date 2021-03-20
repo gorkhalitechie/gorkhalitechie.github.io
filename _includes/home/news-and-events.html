@@ -1,0 +1,66 @@
+<!-- news and events -->
+{% assign news-events = site.data.home.news-events %}
+<section class="news-events-section bg-white py-7">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="row">
+          <div class="section-header col-12">
+            <h1 class="section-title"><span class="title">{{ news-events.news.header-text }}</span>
+            <a href="{{ news-events.news.view-more.url }}" class="view-more">{{ news-events.news.view-more.caption }}</a></h1>
+          </div>
+          {% for item in news-events.news.items %}
+            <div class="col-md-4">
+              <div class="news-item mb-4">
+                <img src="{{ site.image_base_url }}/{{ item.img }}" alt="{{ item.title }}" class="img-fluid">
+                <div class="news-info-wrapper">
+                  <p>
+                    {{ item.title }}
+                  </p>
+                  <p>
+                    <img src="{{ site.image_base_url }}/time.png" alt="Time"> <span>{{ item.date }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="row">
+          <div class="events-header section-header col-12">
+            <h1 class="section-title"><span class="title">{{ news-events.events.header-text }}</span>
+            <a href="{{ news-events.events.view-more.url }}" class="view-more">{{ news-events.events.view-more.caption }}</a></h1>
+          </div>
+          <div class="col-12">
+            <ul class="events">
+              {% for event in news-events.events.items %}
+                <li class="event-item d-flex">
+                  <div class="date">
+                    {{ event.date }}
+                  </div>
+                  <div class="name">
+                    {{ event.title }}
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- news highlight -->
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="anniversary-news d-flex flex-column align-items-start justify-content-center">
+          <h1 class="title">{{ news-events.highlight.header-text }}</h1>
+          <h1 class="title mb-4">{{ news-events.highlight.title }}</h1>
+          <a href="{{ news-events.highlight.btn.url }}" class="btn btn-danger px-4 rounded-0">
+            {{ news-events.highlight.btn.caption }} <img src="{{ site.image_base_url }}/chevron-right.png" alt="Right arrow">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

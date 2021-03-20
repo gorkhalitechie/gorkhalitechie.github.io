@@ -1,0 +1,15 @@
+<!-- quick-links -->
+<div class="quick-links">
+  <div class="container">
+    <div class="row justify-content-center">
+      {% for link in site.data.home.quick-links %}
+        <div class="col-md-3 quick-links-item">
+          <img src="{{ site.image_base_url }}/{{ link.img }}" class="img-fluid" alt="{{ link.title }}">
+          <p class="quick-links-title text-uppercase mb-0">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

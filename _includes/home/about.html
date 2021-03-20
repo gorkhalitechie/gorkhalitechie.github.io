@@ -1,0 +1,43 @@
+{% assign about = site.data.home.about %}
+<!-- about -->
+<section class="about-section py-7">
+  <div class="container relative">
+    <div class="section-header">
+      <h1 class="section-title float-left">{{ about.header-text }}</h1>
+      <div class="section-divider d-none d-sm-block"></div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="{{ about.bg-img }}" class="img-fluid mt-2" alt="Profile">
+      </div>
+      <div class="col-md-6 offset-md-1">
+        <p class="about-info">
+          {{ about.info }}
+        </p>
+        <div class="features">
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="mb-0">
+                {% for feature in about.features.left %}
+                  <li>
+                    <img src="{{ site.image_base_url }}/checkbox.png" alt="Checkbox"> <span>{{ feature }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul>
+                {% for feature in about.features.right %}
+                  <li>
+                    <img src="{{ site.image_base_url }}/checkbox.png" alt="Checkbox"> <span>{{ feature }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

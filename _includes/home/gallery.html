@@ -1,0 +1,21 @@
+<!-- gallery  -->
+{% assign gallery = site.data.home.gallery %}
+<section class="gallery-section bg-gray py-7">
+  <div class="container">
+    <div class="section-header">
+      <h1 class="section-title float-left">{{ gallery.header-text }}</h1>
+      <a href="{{ gallery.view-more.url }}" class="view-more float-right ml-3">{{ gallery.view-more.caption }}</a>
+      <div class="section-divider"></div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row gallery-items">
+      {% for img in gallery.images %}
+        <div class="col-md-3 mb-4">
+          <a href="{{ site.image_base_url }}/gallery/{{ img.path }}">
+            <img src="{{ site.image_base_url }}/gallery/{{ img.path }}" class="card-img-top" alt="{{ img.title }}">
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

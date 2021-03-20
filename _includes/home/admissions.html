@@ -1,0 +1,48 @@
+<!-- admissions -->
+{% assign admissions = site.data.home.admissions %}
+<section class="admissions-section py-7">
+  <div class="container">
+    <div class="section-header">
+      <h1 class="section-title float-left">{{ admissions.header-text }}</h1>
+      <div class="section-divider d-none d-sm-block"></div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row no-gutters">
+      <div class="col-md-3">
+        <img src="{{ site.image_base_url }}/{{ admissions.body.img-left }}" alt="{{ admissions.header-text }}" class="img-fluid">
+      </div>
+      <div class="col-md-9">
+        {% assign tabs = admissions.body.tabs %}
+        <ul class="nav nav-tabs border-0" id="admissionsTab" role="tablist">
+          {% for tab in tabs %}
+            <li class="nav-item" role="presentation">
+              {% assign formatted_title = tab.title | downcase | split: " " | join: "-" %}
+              <a class="nav-link{% if forloop.index == 1 %} active{% endif %}" id="{{ formatted_title }}-tab"
+                data-toggle="tab" href="#{{ formatted_title }}" role="tab" aria-controls="{{ formatted_title }}"
+                aria-selected="true">{{ tab.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="tab-content" id="admissionsTabContent">
+          {% for tab in tabs %}
+            {% assign formatted_title = tab.title | downcase | split: " " | join: "-" %}
+            <div class="tab-pane fade show{% if forloop.index == 1 %} active{% endif %}" id="{{ formatted_title }}"
+              role="tabpanel" aria-labelledby="{{ formatted_title }}-tab">
+              <h4>{{ tab.title }}</h4>
+              <p>
+                {{ tab.content.para }}
+              </p>
+              <ul>
+                {% for link in tab.content.actions %}
+                  <li>
+                    <img src="{{ site.image_base_url }}/arrow.png" alt="{{ tab.title }}"><span>{{ link.title }}</span>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

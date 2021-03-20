@@ -1,0 +1,15 @@
+<!-- partners -->
+{% assign partners = site.data.home.partners %}
+<section class="partners-section bg-white py-7">
+  <div class="section-header">
+    <h1 class="section-title text-center">OUR INDUSTRY PARTNERS</h1>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      {% for partner in partners.list %}
+        <img src="{{ site.image_base_url }}/partners/{{ partner.profile }}" alt="{{ partner.title }}">
+      {% endfor %}
+    </div>
+  </div>
+</section>

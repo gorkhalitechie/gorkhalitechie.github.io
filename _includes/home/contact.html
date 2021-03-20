@@ -1,0 +1,38 @@
+<!-- contact -->
+{% assign contact = site.data.home.contact %}
+<section class="contact-section py-7">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <iframe src="{{ contact.map-src }}" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="col-md-4">
+        <h3 class="text-white mb-3">{{ contact.caption }}</h3>
+        <div class="contact-info text-white">
+          {% for info in contact.items %}
+            <div class="location d-flex mb-4">
+              <img src="{{ site.image_base_url }}/{{ info.icon }}" alt="{{ info.title }}">
+              <p class="pl-2 mb-0">
+                {{ info.content }}
+              </p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3 class="text-white mb-3">{{ contact.quick-link-caption }}</h3>
+        <div class="links text-white">
+          <ul>
+            {% for link in contact.quick-links %}
+              <li>
+                <a href="{{ link.url }}">
+                  <img src="{{ site.image_base_url }}/chevron-right.png" alt="{{ link.title }}"><span>{{ link.title }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

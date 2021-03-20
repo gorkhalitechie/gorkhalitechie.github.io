@@ -1,0 +1,72 @@
+{% assign navbar = site.data.home.navbar %}
+<!-- navbar -->
+<nav class="navbar upper justify-content-between align-items-center">
+  <div class="left-actions d-flex">
+    <div class="mail">
+      <img src="{{ site.image_base_url }}/mail.png" alt=""> <span>{{ navbar.upper.left.mail }}</span>
+    </div>
+    <div class="call ml-3">
+      <img src="{{ site.image_base_url }}/call.png" alt=""> <span>{{ navbar.upper.left.phone }}</span>
+    </div>
+    <div class="social ml-3">
+      {% for social-item in navbar.upper.left.social %}
+        <a href="{{ social-item.url }}">
+          <img src="{{ site.image_base_url }}/{{ social-item.icon-img }}" alt="{{ social-item.title }}">
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="right-actions d-flex align-items-center">
+    <div class="links">
+      {% for link in navbar.upper.right.links %}
+        <a href="{{ link.url }}" class="ml-3"><span>{{ link.title }}</span></a>
+      {% endfor %}
+    </div>
+    <div class="btns">
+      {% for btn in navbar.upper.right.btns %}
+        <a href="{{ btn.url }}" class="{{ btn.class }}"><span>{{ btn.title }}</span></a>
+      {% endfor %}
+    </div>
+  </div>
+</nav>
+<nav class="middle d-flex justify-content-between align-items-center flex-wrap">
+  <div class="left-items d-flex">
+    <img src="{{ site.image_base_url }}/book-reader.png" class="profile" alt="{{ site.title }}">
+    <div class="info ml-4">
+      {% if navbar.middle.trustee %}
+        <p>{{ navbar.middle.trustee }}</p>
+      {% endif %}
+
+      <p class="college">{{ navbar.middle.college-name }}</p>
+      <p>{{ navbar.middle.affiliation }}</p>
+
+      {% if navbar.middle.accreditation %}
+        <p class="text-danger">{{ navbar.middle.accreditation }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if navbar.middle.action-btn %}
+    <div class="right-items">
+      <a href="{{ navbar.action-btn.url }}" class="btn btn-admission">{{ navbar.middle.action-btn.title }}</a>
+    </div>
+  {% endif %}
+</nav>
+<nav class="navbar lower navbar-expand-lg">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        {% for nav-item in navbar.lower %}
+          {% assign title = nav-item.title %}
+          <li class="nav-item {% if forloop.index == 1 %}active{% endif %}">
+            <a class="nav-link" href="{{ site.baseurl }}{{ nav-item.url }}">{{ nav-item.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,34 @@
+<!-- covid -->
+{% assign covid = site.data.home.covid %}
+<section class="covid-section py-7">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 d-none d-md-block">
+        <div class="background-container">
+          <div class="image-wrapper">
+            <a href="#"><img src="{{ site.image_base_url }}/{{ covid.wrapper-img }}" alt="{{ covid.title }}"
+              class="img-fluid"></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="covid-text-wrapper">
+          <div class="inner-content">
+            <h2 class="title mb-4">{{ covid.title }}</h2>
+            <div class="description mb-4">
+              <p>
+                {{ covid.para }}
+              </p>
+            </div>
+            <a href="{{ covid.more.url }}">
+              <span class="text-primary">
+                {{ covid.more.caption }}
+              </span>
+              <img src="{{ site.image_base_url }}/arrow.png" alt="Arrow">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

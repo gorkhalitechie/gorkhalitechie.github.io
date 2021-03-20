@@ -1,0 +1,21 @@
+<!-- principal message -->
+{% assign message = site.data.home.message %}
+<section class="principal-section py-7">
+  <div class="container relative">
+    <div class="section-header">
+      <h1 class="section-title float-left">{{ message.header-text }}</h1>
+      <div class="section-divider d-none d-sm-block"></div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="message-info">
+          {{ message.msg }}
+        </p>
+      </div>
+      <div class="col-md-4 offset-md-1">
+        <img src="{{ site.image_base_url }}/{{ message.profile }}" class="img-fluid mt-2" alt="{{ message.header-text }}">
+      </div>
+    </div>
+  </div>
+</section>
